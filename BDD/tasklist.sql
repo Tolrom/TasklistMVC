@@ -1,0 +1,45 @@
+CREATE DATABASE IF NOT EXISTS tasklist;
+
+USE tasklist;
+
+CREATE TABLE IF NOT EXISTS account(
+id_account 	INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+firstname VARCHAR(50) NOT NULL,
+lastname VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL UNIQUE,
+password VARCHAR(100) NOT NULL
+)Engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS task(
+id_task INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+title VARCHAR(50) NOT NULL,
+content VARCHAR(250),
+created DATETIME NOT NULL,
+status TINYINT(1),
+id_account INT
+)Engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS category(
+id_category INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name VARCHAR(50) UNIQUE NOT NULL 
+)Engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS task_category(
+id_task INT,
+id_category INT,
+PRIMARY KEY(id_task, id_category)
+)Engine=InnoDB;
+
+ALTER TABLE task_category
+ADD CONSTRAINT fk_category
+FOREIGN KEY (id_category) REFERENCES category (id_category)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+ADD CONSTRAINT fk_task
+FOREIGN KEY (id_task) REFERENCES task (id_task)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE task
+ADD CONSTRAINT fk_account
+FOREIGN KEY (id_account) REFERENCES account (id_account);
