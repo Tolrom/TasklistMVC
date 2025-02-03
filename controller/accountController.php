@@ -97,6 +97,7 @@ function login(PDO $bdd) {
                                 $_SESSION['pseudo'] = $acc['firstname'].$acc['lastname'][0].$acc['lastname'][1].$acc['lastname'][2];
                                 $_SESSION['email'] = $acc['email'];
                                 $message = "Connexion réussie, bienvenue $acc[firstname]";
+                                header('location:myAccount.php');
                             }
                         }
                         else {
