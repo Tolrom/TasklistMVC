@@ -3,7 +3,6 @@
 include 'model/account.php';
 include 'utils/utils.php';
 
-include 'vue/header.php';
 function accountAdd(PDO $bdd) {
     $message = '';
 
