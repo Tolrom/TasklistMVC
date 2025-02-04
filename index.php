@@ -14,6 +14,7 @@ include 'controller/myAccountController.php';
 
 // Importing header
 include 'vue/header.php';
+echo $navbar;
 
 // Connecting to Database
 $bdd = connexion();
@@ -54,3 +55,7 @@ else {
             break;
     }
 }
+
+// Importing footer
+include 'vue/footer.php';
+echo $footer;

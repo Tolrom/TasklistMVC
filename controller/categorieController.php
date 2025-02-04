@@ -19,4 +19,5 @@ function categoryAdd(PDO $bdd) {
     }
    
     include 'vue/addCategory.php';
+    echo $addCategory;
 }

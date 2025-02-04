@@ -8,4 +8,5 @@ function displayMyAcc($bdd){
         exit;
     }
     include 'vue/myAcc.php';
+    echo $profile;
 }

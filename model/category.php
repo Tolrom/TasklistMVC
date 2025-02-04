@@ -82,10 +82,13 @@ function getCategoryByName(PDO $bdd, string $name): ?array
         //Exécuter la requête
         $req->execute();
         $data = $req->fetch(PDO::FETCH_ASSOC);
+        if(empty($data)){
+            return null;
+        }
         return $data;
     } catch (Exception $e) {
         echo "Erreur" . $e->getMessage();
-        // return null;
+        return null;
     }
 }
 

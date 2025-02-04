@@ -74,6 +74,7 @@ function accountAdd(PDO $bdd) {
         }
     }
     include 'vue/signup.php';
+    echo $signupForm;
 }
 
 function login(PDO $bdd) {
@@ -116,11 +117,12 @@ function login(PDO $bdd) {
         }
     }
     include 'vue/login.php';
+    echo $loginForm;
 }
 
 function displayAccounts(PDO $bdd) {
     $accounts= [];
     $accounts = getAllAccount($bdd);
-    // dump($accounts);
     include 'vue/accounts.php';
+    echo $accounts;
 }
