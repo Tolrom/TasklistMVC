@@ -4,7 +4,7 @@ function displayMyAcc($bdd){
         $acc = getAccountByEmail($bdd, $_SESSION['email']);
     }
     else{
-        header('location:index.php');
+        header('location:/exophp');
         exit;
     }
     include 'vue/myAcc.php';
