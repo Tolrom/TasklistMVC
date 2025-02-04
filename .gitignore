@@ -1,0 +1,6 @@
+env.php
+*.env
+.env
+exercices.php
+forms.php
+arrays.php
